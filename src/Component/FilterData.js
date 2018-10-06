@@ -7,48 +7,45 @@ import {Product} from "./Product";
 import {data} from "../data"; //Si se pone las llaves evitamos tener que escribir data.data
 
 
-export const FilterData = () => {
-    
-    /*------------------------*/
+export const FilterData = (filterLodash) => {
+    // /*------------------------*/
 
-    const filterForEach = {};
-    data.forEach(e => {
-        if(filterForEach[e.category]){
-            filterForEach[e.category].push(e);
-        }else {
-            filterForEach[e.category] = [e];
-        }
-        /*------------------------*/
-        /* Se puede utilizar el operador ternario para esto y hacerlo en una sola linea:
+    // const filterForEach = {};
+    // data.forEach(e => {
+    //     if(filterForEach[e.category]){
+    //         filterForEach[e.category].push(e);
+    //     }else {
+    //         filterForEach[e.category] = [e];
+    //     }
+    //     /*------------------------*/
+    //     /* Se puede utilizar el operador ternario para esto y hacerlo en una sola linea:
         
-        filterForEach[e.category] ? filterForEach[e.category].push(e) : filterForEach[e.category]=[e];
-        */
-    });
-    console.log(filterForEach);
+    //     filterForEach[e.category] ? filterForEach[e.category].push(e) : filterForEach[e.category]=[e];
+    //     */
+    // });
+    // console.log(filterForEach);
 
-    /*------------------------*/
+    // /*------------------------*/
 
     
 
-    const filterReduce = data.reduce((acc, e) => {
-        if(acc[e.category]){
-            acc[e.category].push(e);
-        } else {
-            acc[e.category] = [e];
-        }
-        return acc;
-    },{})
-       console.log(filterReduce);
+    // const filterReduce = data.reduce((acc, e) => {
+    //     if(acc[e.category]){
+    //         acc[e.category].push(e);
+    //     } else {
+    //         acc[e.category] = [e];
+    //     }
+    //     return acc;
+    // },{})
+    //    console.log(filterReduce);
        
-    /*------------------------*/ //Recordar que está bien utilizar lodash, pero siempre sabiendo lo que hace.
-    const filterLodash = _.groupBy(data, e => e.category);
+    // /*------------------------*/ //Recordar que está bien utilizar lodash, pero siempre sabiendo lo que hace.
+    // const filterLodash = _.groupBy(data, e => e.category);
 
-    console.log(filterLodash);
-
+    // console.log(filterLodash);
 
     return(
         <div>
-            <h1>PEPE ES EL MEJOR!!!!!!</h1>
             {
                 Object.keys(filterLodash).map( (category, ic) => {
                     return(

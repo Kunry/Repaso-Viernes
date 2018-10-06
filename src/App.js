@@ -24,9 +24,8 @@ export default class App extends Component {
         const expReg = new RegExp(_data, "ig") // Se declara RegExp con el valor del input, se le dice que no diferencie entre mayusculas y minusculas (i), y que busque en todo el string (g)
         return expReg.test(e.name) // se utiliza la propiedad test() que nos devuelve true o false si encuentra algún valor
     })  
-    // _data = data.filter(e => e.name.includes(_data)); 
+    // _data = data.filter(e => e.name.includes(_data)); // Con esta tambien os vale, pera para que veáis otra forma de hacer.
     this.setState({ data: _data, search }, () => {
-      // Me e
       this.Checkbox(checkbox);
     });
   }
